@@ -22,6 +22,7 @@
   </div>
 
 	<div class="col-sm-6">
+
 		<label for="">Animation for show</label>
 		<select id="animateIn" class="form-control input-lg">
         
@@ -88,11 +89,9 @@
       </optgroup>
 
 		</select>
-	</div>
 
-	<div class="col-sm-6">
-		<label for="">Animation for hide</label>
-		<select id="animateOut" class="form-control input-lg">
+    <label for="" style="margin-top: 20px;">Animation for hide</label>
+    <select id="animateOut" class="form-control input-lg">
         
         <option selected>none</option>
 
@@ -154,17 +153,32 @@
         <option value="hinge">hinge</option>
         <option value="rollOut">rollOut</option>
       </optgroup>
-		</select>		
+    </select>   
+    <button class="btn btn-primary btn-lg btn-block ignite-modal" style="margin-top: 20px; padding: 30px 0;">
+      Launch demo modal
+    </button>
 	</div>
 
+	<div class="col-sm-6">
 
-	<div class="col-sm-12">
-  	<button class="btn btn-primary btn-lg btn-block ignite-modal" style="margin-top: 20px; padding: 30px 0;">
-  	  Launch demo modal
-  	</button>
+    <label>Usage:</label>
+
+    <p>With data-attributes:<br>
+      <pre><code>data-animate-in="your-animation"</code><br>
+<code>data-animate-out="your-animation"</code></pre>
+    </p>
+  
+    <p>With javascript: <br>
+    
+    <pre><code>$('#myModal').modal({
+  animateIn : 'your-animation',
+  animateOut : 'your-animation'
+});</code></pre>
+
+    </p>
 	</div>
 
-	<div class="modal" id="modalExtended" tabindex="-1" role="dialog" aria-labelledby="modalExtendedLabel" aria-hidden="true">
+	<div class="modal" data-animate-in="" data-animate-out="" id="modalExtended" tabindex="-1" role="dialog" aria-labelledby="modalExtendedLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header">
