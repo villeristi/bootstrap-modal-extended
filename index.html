@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Bootstrap Modal Extended</title>	
+
+	  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
+
+	</head>
+
+	<body>
+
+	<div class="container">
+
+  <div class="page-header">
+    <h1>Bootstrap Modal Extended <small class="pull-right">by <a href="https://twitter.com/villeristi" target="_blank">villeristi</a></small></h1>
+  </div>
+
+	<div class="col-sm-6">
+		<label for="">Animation for show</label>
+		<select id="animateIn" class="form-control input-lg">
+      
+      <optgroup label="Attention Seekers">
+        <option value="bounce">bounce</option>
+        <option value="flash">flash</option>
+        <option value="pulse">pulse</option>
+        <option value="rubberBand">rubberBand</option>
+        <option value="shake">shake</option>
+        <option value="swing">swing</option>
+        <option value="tada">tada</option>
+        <option value="wobble">wobble</option>
+      </optgroup>
+
+      <optgroup label="Bouncing Entrances">
+        <option value="bounceIn">bounceIn</option>
+        <option value="bounceInDown">bounceInDown</option>
+        <option value="bounceInLeft">bounceInLeft</option>
+        <option value="bounceInRight">bounceInRight</option>
+        <option value="bounceInUp">bounceInUp</option>
+      </optgroup>
+
+      <optgroup label="Fading Entrances">
+        <option value="fadeIn">fadeIn</option>
+        <option value="fadeInDown">fadeInDown</option>
+        <option value="fadeInDownBig">fadeInDownBig</option>
+        <option value="fadeInLeft">fadeInLeft</option>
+        <option value="fadeInLeftBig">fadeInLeftBig</option>
+        <option value="fadeInRight">fadeInRight</option>
+        <option value="fadeInRightBig">fadeInRightBig</option>
+        <option value="fadeInUp">fadeInUp</option>
+        <option value="fadeInUpBig">fadeInUpBig</option>
+      </optgroup>
+
+      <optgroup label="Flippers">
+        <option value="flip">flip</option>
+        <option value="flipInX">flipInX</option>
+        <option value="flipInY">flipInY</option>
+      </optgroup>
+
+      <optgroup label="Lightspeed">
+        <option value="lightSpeedIn">lightSpeedIn</option>
+      </optgroup>
+
+      <optgroup label="Rotating Entrances">
+        <option value="rotateIn">rotateIn</option>
+        <option value="rotateInDownLeft">rotateInDownLeft</option>
+        <option value="rotateInDownRight">rotateInDownRight</option>
+        <option value="rotateInUpLeft">rotateInUpLeft</option>
+        <option value="rotateInUpRight">rotateInUpRight</option>
+      </optgroup>
+
+      <optgroup label="Sliders">
+        <option value="slideInDown">slideInDown</option>
+        <option value="slideInLeft">slideInLeft</option>
+        <option value="slideInRight">slideInRight</option>
+      </optgroup>
+
+      <optgroup label="Specials">
+        <option value="hinge">hinge</option>
+        <option value="rollIn">rollIn</option>
+      </optgroup>
+
+		</select>
+	</div>
+
+	<div class="col-sm-6">
+		<label for="">Animation for hide</label>
+		<select id="animateOut" class="form-control input-lg">
+      <optgroup label="Attention Seekers">
+        <option value="bounce">bounce</option>
+        <option value="flash" selected>flash</option>
+        <option value="pulse">pulse</option>
+        <option value="rubberBand">rubberBand</option>
+        <option value="shake">shake</option>
+        <option value="swing">swing</option>
+        <option value="tada">tada</option>
+        <option value="wobble">wobble</option>
+      </optgroup>
+
+      <optgroup label="Bouncing Entrances">
+        <option value="bounceIn">bounceIn</option>
+        <option value="bounceInDown">bounceInDown</option>
+        <option value="bounceInLeft">bounceInLeft</option>
+        <option value="bounceInRight">bounceInRight</option>
+        <option value="bounceInUp">bounceInUp</option>
+      </optgroup>
+
+      <optgroup label="Bouncing Exits">
+        <option value="bounceOut">bounceOut</option>
+        <option value="bounceOutDown">bounceOutDown</option>
+        <option value="bounceOutLeft">bounceOutLeft</option>
+        <option value="bounceOutRight">bounceOutRight</option>
+        <option value="bounceOutUp">bounceOutUp</option>
+      </optgroup>
+
+      <optgroup label="Fading Entrances">
+        <option value="fadeIn">fadeIn</option>
+        <option value="fadeInDown">fadeInDown</option>
+        <option value="fadeInDownBig">fadeInDownBig</option>
+        <option value="fadeInLeft">fadeInLeft</option>
+        <option value="fadeInLeftBig">fadeInLeftBig</option>
+        <option value="fadeInRight">fadeInRight</option>
+        <option value="fadeInRightBig">fadeInRightBig</option>
+        <option value="fadeInUp">fadeInUp</option>
+        <option value="fadeInUpBig">fadeInUpBig</option>
+      </optgroup>
+
+      <optgroup label="Fading Exits">
+        <option value="fadeOut">fadeOut</option>
+        <option value="fadeOutDown">fadeOutDown</option>
+        <option value="fadeOutDownBig">fadeOutDownBig</option>
+        <option value="fadeOutLeft">fadeOutLeft</option>
+        <option value="fadeOutLeftBig">fadeOutLeftBig</option>
+        <option value="fadeOutRight">fadeOutRight</option>
+        <option value="fadeOutRightBig">fadeOutRightBig</option>
+        <option value="fadeOutUp">fadeOutUp</option>
+        <option value="fadeOutUpBig">fadeOutUpBig</option>
+      </optgroup>
+
+      <optgroup label="Flippers">
+        <option value="flip">flip</option>
+        <option value="flipInX">flipInX</option>
+        <option value="flipInY">flipInY</option>
+        <option value="flipOutX">flipOutX</option>
+        <option value="flipOutY">flipOutY</option>
+      </optgroup>
+
+      <optgroup label="Lightspeed">
+        <option value="lightSpeedIn">lightSpeedIn</option>
+        <option value="lightSpeedOut">lightSpeedOut</option>
+      </optgroup>
+
+      <optgroup label="Rotating Entrances">
+        <option value="rotateIn">rotateIn</option>
+        <option value="rotateInDownLeft">rotateInDownLeft</option>
+        <option value="rotateInDownRight">rotateInDownRight</option>
+        <option value="rotateInUpLeft">rotateInUpLeft</option>
+        <option value="rotateInUpRight">rotateInUpRight</option>
+      </optgroup>
+
+      <optgroup label="Rotating Exits">
+        <option value="rotateOut">rotateOut</option>
+        <option value="rotateOutDownLeft">rotateOutDownLeft</option>
+        <option value="rotateOutDownRight">rotateOutDownRight</option>
+        <option value="rotateOutUpLeft">rotateOutUpLeft</option>
+        <option value="rotateOutUpRight">rotateOutUpRight</option>
+      </optgroup>
+
+      <optgroup label="Sliders">
+        <option value="slideInDown">slideInDown</option>
+        <option value="slideInLeft">slideInLeft</option>
+        <option value="slideInRight">slideInRight</option>
+        <option value="slideOutLeft">slideOutLeft</option>
+        <option value="slideOutRight">slideOutRight</option>
+        <option value="slideOutUp">slideOutUp</option>
+      </optgroup>
+
+      <optgroup label="Specials">
+        <option value="hinge">hinge</option>
+        <option value="rollIn">rollIn</option>
+        <option value="rollOut">rollOut</option>
+      </optgroup>
+		</select>		
+	</div>
+
+
+	<div class="col-sm-12">
+  	<button class="btn btn-primary btn-lg btn-block ignite-modal" style="margin-top: 20px; padding: 30px 0;">
+  	  Launch demo modal
+  	</button>
+	</div>
+
+	<div class="modal" data-animate-in="bounce" data-animate-out="flash" id="modalExtended" tabindex="-1" role="dialog" aria-labelledby="modalExtendedLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="modalExtendedLabel">Modal title</h4>
+	      </div>
+	      <div class="modal-body">
+	        ...
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	</div>
+
+	<!-- ========== SCRIPTS ========== -->
+
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="modalExtended.js"></script>
+
+	
+	<!-- ========== IGNORE => JUST FOR DEMO PURPOSES ========== -->
+	
+	<script>
+
+		jQuery(document).ready(function($) {
+
+      var testModal = $.fn.modal.Constructor.prototype
+			var extOptions = {}
+
+
+      $.extend( testModal, {
+        refresh: function () {
+          var self = this
+          $.extend( this.options, extOptions )
+        }
+      })
+
+
+      $('select').change( function (e){
+
+        var $modal = $('#modalExtended'),
+            $target = $(this).attr('id'),
+            $value = $(this).val()
+
+        $target == 'animateIn' ?
+        	extOptions.animateIn = $value :
+        	extOptions.animateOut = $value
+
+        $('#modalExtended').modal('refresh')
+
+			})
+
+      $('.ignite-modal').click( function(e){
+        $('#modalExtended').modal()
+        e.preventDefault()
+      });
+      
+		})
+
+
+	</script>
+		
+	</body>
+</html>

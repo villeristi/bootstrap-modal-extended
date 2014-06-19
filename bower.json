@@ -1,0 +1,30 @@
+{
+  "name": "Bootstrap Modal Extended",
+  "version": "0.0.1",
+  "authors": [
+    "Ville Ristimäki <villeristimaki@gmail.com>"
+  ],
+  "description": "Add animate.css animations to Bootstrap modal.",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "Bootstrap",
+    "animated.css"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "animate.css": "~3.1.1"
+  }
+}
