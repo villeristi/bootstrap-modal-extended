@@ -1,3 +1,16 @@
+/**
+ * 
+ * Bootstrap Modal Extended v0.1
+ * -----------------------------
+ * 
+ * Demo: http://villeristi.github.io/bootstrapModalExtended
+ * 
+ * github.com/villeristi
+ * twitter.com/villeristi
+ *
+ * 
+ */
+
 
 +function ($) {
 
@@ -5,16 +18,17 @@
 
   var ModalExtended = $.fn.modal.Constructor
 
-
-  /**
-   * Show
-   */
   
   ModalExtended.prototype.show = function (_relatedTarget) {
     
     var that = this,
         e    = $.Event('show.bs.modal', { relatedTarget: _relatedTarget }),
         transition = $.support.transition
+
+    if( this.$element.hasClass('fade') && undefined != this.options.animateIn ){
+      this.$element
+        .removeClass('fade')
+    }
 
     this.$element.trigger(e)
 
@@ -27,6 +41,7 @@
     this.$element.on('click.dismiss.bs.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))
 
     this.backdrop(function () {
+      var transition = $.support.transition
 
       if (!that.$element.parent().length) {
         that.$element.appendTo(document.body)
@@ -36,40 +51,39 @@
         .show()
         .scrollTop(0)
 
-      if ( transition || ( transition && 'undefined' != that.options.animateIn ) ) {
-        that.$element[0].offsetWidth
-        that.$element.addClass('animated ' + that.options.animateIn)
-      }
-
       that.$element
         .addClass('in')
         .attr('aria-hidden', false)
+
+      if ( transition ) {
+        that.$element[0].offsetWidth
+      }
 
       that.enforceFocus()
 
       var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })
 
-
-      // TODO:
-      // if anime => anime,
-      // if fade => fade
-      // else => hideModal()
-
-      transition || transition && that.$element.hasClass('fade') ?
+      if ( transition && undefined != that.options.animateIn ) {
+        that.$element.addClass('animated ' + that.options.animateIn)
         that.$element.find('.modal-dialog')
           .one($.support.transition.end, function () {
             that.$element.focus().trigger(e)
           })
-          .emulateTransitionEnd(1000) :
-        that.$element.focus().trigger(e)
+          .emulateTransitionEnd(1000)        
+      }
+
+      else{
+        transition && that.$element.hasClass('fade') ?
+          that.$element.find('.modal-dialog')
+            .one($.support.transition.end, function () {
+              that.$element.focus().trigger(e)
+            })
+            .emulateTransitionEnd(300) :
+          that.$element.focus().trigger(e)
+      }
     })
   }
 
-
-
-  /**
-   * Prepare for hide
-   */
 
   ModalExtended.prototype.hide = function (e) {
 
@@ -99,31 +113,34 @@
       .attr('aria-hidden', true)
       .off('click.dismiss.bs.modal')
 
-    // TODO:
-    // if anime => anime,
-    // if fade => fade
-    // else => hideModal()
 
-    $.support.transition && 'undefined' != this.options.animateOut || $.support.transition && this.$element.hasClass('fade') ?
+    if ( $.support.transition && undefined != this.options.animateOut ){
       this.$element
         .addClass('animated ' + this.options.animateOut)
         .one($.support.transition.end, $.proxy(this.hideModal, this))
-        .emulateTransitionEnd(1000) :
-      this.hideModal()
+        .emulateTransitionEnd(1000)
+        return false
+    }
+
+    else{
+
+      $.support.transition && this.$element.hasClass('fade') ?
+        this.$element
+          .one($.support.transition.end, $.proxy(this.hideModal, this))
+          .emulateTransitionEnd(300) :
+        this.hideModal()
+
+    }
   }
 
-
-
-  /**
-   * Hide
-   */
 
   ModalExtended.prototype.hideModal = function () {
 
     var that = this
 
-    if( 'undefined' != this.options.animateOut ){
-      this.$element.removeClass('animated ' + this.options.animateOut)
+    if( undefined != this.options.animateOut ){
+      this.$element
+        .removeClass('animated ' + this.options.animateOut)
     }
 
     this.$element.hide()
